@@ -17,7 +17,9 @@ export const HomePage: React.FC = () => {
       <TextSection
         title="Welcome"
         paragraphs={[
-          "Security Slam helps projects understand and improve their security posture."
+          "Security Slam helps projects understand and improve their security posture.",
+          "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
+          "Explore Slam26 for the 2026 event details, browse the Slam Library for guides and how-tos, and check the blog for announcements."
         ]}
         centered={true}
         maxWidth="700px"
