@@ -76,7 +76,7 @@ export const siteConfig: SiteConfig = {
   ],
 
   library: {
-    enabled: true
+    enabled: false
   },
 
   footer: {

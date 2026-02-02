@@ -31,7 +31,6 @@ export const HomePage: React.FC = () => {
           <TextSection
             title="Improving Open Source Security at the Source"
             paragraphs={[
-              "Security Slam helps projects understand and improve their security posture.",
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
               "Explore Slam26 for the 2026 event details, browse the Slam Library for guides and how-tos, and check the blog for announcements."
             ]}
@@ -50,18 +49,13 @@ export const HomePage: React.FC = () => {
               color: "var(--gf-color-text-subtle)",
               fontSize: "1.1rem",
               marginBottom: "var(--gf-space-lg)",
-              maxWidth: "700px"
+              maxWidth: "700px",
+              lineHeight: 1.7
             }}
           >
-            Transparency reports from previous Security Slam events on the CNCF site.
+            Past Security Slams have been a great success: projects and contributors have leveled up their security hygiene, and the community has learned from each iteration. By getting more people involved and sharing what works, we elevate the whole ecosystem. Read the transparency reports from previous events on the CNCF site.
           </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "var(--gf-space-lg)"
-            }}
-          >
+          <div className="past-reports-grid">
             {siteConfig.pastSlamReports.map((report) => (
               <LinkCard
                 key={report.href}
