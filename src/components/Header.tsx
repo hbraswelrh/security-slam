@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { siteConfig } from "../config/site";
+import logoColorUrl from "../public/logo/logo-color.png";
 
 export const Header: React.FC = () => {
   const location = useLocation();
@@ -35,6 +36,22 @@ export const Header: React.FC = () => {
           textAlign: "center"
         }}
       >
+        <Link
+          to="/"
+          style={{ display: "block", marginBottom: "var(--gf-space-md)" }}
+          aria-label={`${siteConfig.siteName} home`}
+        >
+          <img
+            src={logoColorUrl}
+            alt={siteConfig.siteName}
+            style={{
+              maxHeight: "100px",
+              width: "auto",
+              objectFit: "contain",
+              display: "block"
+            }}
+          />
+        </Link>
         <h1
           style={{
             fontSize: "3.5rem",
