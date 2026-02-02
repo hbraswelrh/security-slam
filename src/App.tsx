@@ -62,8 +62,12 @@ export const App: React.FC = () => {
                 element={<ContactPage />}
               />
             ))}
-            <Route path="/library" element={<LibraryPage />} />
-            <Route path="/library/:slug" element={<LibraryArticlePage />} />
+            {siteConfig.library.enabled && (
+              <>
+                <Route path="/library" element={<LibraryPage />} />
+                <Route path="/library/:slug" element={<LibraryArticlePage />} />
+              </>
+            )}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

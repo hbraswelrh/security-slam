@@ -36,9 +36,7 @@ export const LibraryPage: React.FC = () => {
           lineHeight: 1.6
         }}
       >
-        Support resources organized by topic. Add markdown files under{" "}
-        <code>src/content/library/</code> with frontmatter (title, description,
-        tags).
+        A library of support resources to help projects execute on the more complex goals of the Security Slam. The Slam Library opens February 20, 2026.
       </p>
 
       {tags.length === 0 ? (

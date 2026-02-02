@@ -21,71 +21,73 @@ export const Header: React.FC = () => {
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "var(--gf-space-xl)",
+        padding: "var(--gf-space-md) var(--gf-space-xl)",
         width: "100%"
       }}
     >
       <section
         id="hero"
+        className="site-header-inner"
         style={{
-          minHeight: "30vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
           alignItems: "center",
+          gap: "var(--gf-space-md)",
           textAlign: "center"
         }}
       >
-        <Link
-          to="/"
-          style={{ display: "block", marginBottom: "var(--gf-space-md)" }}
-          aria-label={`${siteConfig.siteName} home`}
+        <div
+          className="site-header-brand"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "var(--gf-space-md)"
+          }}
         >
-          <img
-            src={logoColorUrl}
-            alt={siteConfig.siteName}
+          <Link
+            to="/"
+            style={{ display: "block" }}
+            aria-label={`${siteConfig.siteName} home`}
+          >
+            <img
+              src={logoColorUrl}
+              alt={siteConfig.siteName}
+              style={{
+                maxHeight: "80px",
+                width: "auto",
+                objectFit: "contain",
+                display: "block"
+              }}
+            />
+          </Link>
+          <p
             style={{
-              maxHeight: "100px",
-              width: "auto",
-              objectFit: "contain",
-              display: "block"
+              fontSize: "1.1rem",
+              color: "var(--gf-color-text-subtle)",
+              margin: 0,
+              lineHeight: 1.4
             }}
-          />
-        </Link>
-        <h1
-          style={{
-            fontSize: "3.5rem",
-            fontWeight: 700,
-            marginBottom: 0,
-            color: "var(--gf-color-text)",
-            lineHeight: 1.1,
-            maxWidth: "900px"
-          }}
-        >
-          {siteConfig.siteName}
-        </h1>
-        <p
-          style={{
-            fontSize: "2rem",
-            color: "var(--gf-color-text-subtle)",
-            marginTop: "0.5rem",
-            marginBottom: "var(--gf-space-lg)",
-            lineHeight: 1.6
-          }}
-        >
-          {siteConfig.tagline}
-        </p>
+          >
+            {siteConfig.tagline}
+          </p>
+        </div>
         <nav
           style={{
             display: "flex",
             gap: "var(--gf-space-md)",
             alignItems: "center",
-            marginTop: "var(--gf-space-md)",
             flexWrap: "wrap",
             justifyContent: "center"
           }}
         >
-          {siteConfig.nav.map((item) => (
+          {siteConfig.nav
+            .filter(
+              (item) =>
+                (item.path !== "/blog" || siteConfig.blog.enabled) &&
+                (item.path !== "/library" || siteConfig.library.enabled)
+            )
+            .map((item) => (
             <Link
               key={item.path}
               to={item.path}

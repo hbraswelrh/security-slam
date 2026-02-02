@@ -22,16 +22,38 @@ export const Footer: React.FC = () => {
           fontSize: "0.875rem"
         }}
       >
-        <p>{siteConfig.footer.copyrightText}</p>
+        {siteConfig.footer.copyrightText ? (
+          <p>{siteConfig.footer.copyrightText}</p>
+        ) : null}
         <div
           style={{
             display: "flex",
             justifyContent: "center",
             gap: "var(--gf-space-md)",
-            marginTop: "var(--gf-space-md)",
+            marginTop: siteConfig.footer.copyrightText ? "var(--gf-space-md)" : 0,
             flexWrap: "wrap"
           }}
         >
+          {siteConfig.preregistrationUrl ? (
+            <a
+              href={siteConfig.preregistrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--gf-color-text-subtle)",
+                textDecoration: "none",
+                transition: "color 0.2s"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--gf-color-accent)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--gf-color-text-subtle)";
+              }}
+            >
+              Pre-register
+            </a>
+          ) : null}
           {siteConfig.footer.links.map((link) => (
             <a
               key={link.href}
