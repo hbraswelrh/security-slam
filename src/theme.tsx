@@ -116,7 +116,14 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={value}>
-      <div className="template-root" style={cssVariables}>
+      <div
+        className="template-root"
+        style={{
+          ...cssVariables,
+          minHeight: "100%",
+          background: theme.colors.background
+        }}
+      >
         {children}
       </div>
     </ThemeContext.Provider>

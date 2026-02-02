@@ -52,6 +52,22 @@ export const HomePage: React.FC = () => {
           )}
         </SectionCard>
         <SectionCard
+          title="Slam Library"
+          description="Support resources organized by topic. Guides, references, and how-tos."
+        >
+          <Link
+            to="/library"
+            style={{
+              color: "var(--gf-color-accent)",
+              textDecoration: "none",
+              marginTop: "var(--gf-space-md)",
+              display: "inline-block"
+            }}
+          >
+            Browse library →
+          </Link>
+        </SectionCard>
+        <SectionCard
           title="Articles"
           description="Secondary (non-blog) pages like About or Terms. Configure paths and content in site config."
         >
@@ -88,6 +104,57 @@ export const HomePage: React.FC = () => {
           )}
         </SectionCard>
       </div>
+
+      {siteConfig.blog.enabled && siteConfig.blog.posts.length > 0 && (
+        <section
+          style={{
+            marginBottom: "var(--gf-space-xl)"
+          }}
+        >
+          <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Latest from the blog</h2>
+          <p
+            style={{
+              color: "var(--gf-color-text-subtle)",
+              fontSize: "1.1rem",
+              marginBottom: "var(--gf-space-lg)",
+              maxWidth: "700px"
+            }}
+          >
+            Recent posts and updates.
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--gf-space-lg)"
+            }}
+          >
+            {siteConfig.blog.posts.slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                <SectionCard title={post.title} description={post.excerpt}>
+                  <p
+                    style={{
+                      color: "var(--gf-color-text-subtle)",
+                      fontSize: "0.9rem",
+                      marginTop: "var(--gf-space-md)",
+                      marginBottom: 0
+                    }}
+                  >
+                    {post.date}
+                  </p>
+                </SectionCard>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section
         style={{

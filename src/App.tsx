@@ -8,6 +8,8 @@ import { BlogIndexPage } from "./pages/BlogIndexPage";
 import { BlogPostPage } from "./pages/BlogPostPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import { ContactPage } from "./pages/ContactPage";
+import { LibraryPage } from "./pages/LibraryPage";
+import { LibraryArticlePage } from "./pages/LibraryArticlePage";
 import { useTheme } from "./theme";
 import { siteConfig } from "./config/site";
 
@@ -60,6 +62,8 @@ export const App: React.FC = () => {
                 element={<ContactPage />}
               />
             ))}
+            <Route path="/library" element={<LibraryPage />} />
+            <Route path="/library/:slug" element={<LibraryArticlePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

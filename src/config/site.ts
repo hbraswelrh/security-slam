@@ -66,6 +66,7 @@ export const siteConfig: SiteConfig = {
   nav: [
     { path: "/", label: "Home" },
     { path: "/blog", label: "Blog" },
+    { path: "/library", label: "Slam Library" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" }
   ],
