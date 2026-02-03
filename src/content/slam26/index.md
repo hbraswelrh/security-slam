@@ -48,4 +48,4 @@ Key Dates to Remember:
 * **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
 * **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavillion Stage
 
-[**Pre-registration**](http://securityslam.com/register) **is now open: Sign up to receive reminders and instructions related to the event\!**
+[Registration](http://securityslam.com/register) is now open: Sign up to receive reminders and instructions related to the event!

@@ -3,6 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { HubSpotForm } from "../components/HubSpotForm";
+import { markdownComponents } from "../components/markdownComponents";
 import {
   getSectionItemBySlug,
   getSectionItemByPath
@@ -70,7 +71,7 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
             marginBottom: item.hubspot ? "var(--gf-space-xl)" : 0
           }}
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.body}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{item.body}</ReactMarkdown>
         </div>
       )}
       {item.hubspot && (

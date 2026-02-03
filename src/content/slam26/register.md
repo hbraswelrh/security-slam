@@ -10,7 +10,7 @@ hubspot:
 
 ## Join Slack
 
-Slam advisors will be active on Slack during the event. Be sure to create a free account on slack.cncf.io and introduce yourself in [#tag-security-and-compliance](https://cloud-native.slack.com/archives/C08JZ9YLAA3)!
+Slam advisors will be active on Slack during the event. Be sure to create a free account on [slack.cncf.io](https://slack.cncf.io) and introduce yourself in [#tag-security-and-compliance](https://cloud-native.slack.com/archives/C08JZ9YLAA3)!
 
 ## Register for the Event
 

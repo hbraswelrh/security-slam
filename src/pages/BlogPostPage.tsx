@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { markdownComponents } from "../components/markdownComponents";
 import { getBlogPost } from "../content/blog";
 
 export const BlogPostPage: React.FC = () => {
@@ -49,7 +50,7 @@ export const BlogPostPage: React.FC = () => {
           fontSize: "1.25rem"
         }}
       >
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{post.body}</ReactMarkdown>
       </div>
     </article>
   );

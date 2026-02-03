@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
+import { markdownComponents } from "../components/markdownComponents";
 import { siteConfig } from "../config/site";
 import {
   getSectionIndexItem,
@@ -72,7 +73,7 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
               marginBottom: listItems.length > 0 ? "var(--gf-space-2xl)" : 0
             }}
           >
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{indexItem.body}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{indexItem.body}</ReactMarkdown>
           </div>
         </article>
       ) : (
