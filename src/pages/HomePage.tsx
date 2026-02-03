@@ -41,7 +41,12 @@ export const HomePage: React.FC = () => {
       </div>
 
       {siteConfig.pastSlamReports.length > 0 && (
-        <section style={{ marginBottom: "var(--gf-space-xl)" }}>
+        <section
+          style={{
+            marginBottom: "var(--gf-space-xl)",
+            textAlign: "center"
+          }}
+        >
           <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Past Slam reports</h2>
           <p
             style={{
@@ -49,6 +54,8 @@ export const HomePage: React.FC = () => {
               fontSize: "1.1rem",
               marginBottom: "var(--gf-space-lg)",
               maxWidth: "700px",
+              marginLeft: "auto",
+              marginRight: "auto",
               lineHeight: 1.7
             }}
           >

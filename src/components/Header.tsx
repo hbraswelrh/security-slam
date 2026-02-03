@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { siteConfig } from "../config/site";
 import logoColorUrl from "../public/logo/logo-color.png";
+import tagScLogoUrl from "../public/logo/tag_sc_logo-color.png";
 
 export const Header: React.FC = () => {
   const location = useLocation();
@@ -53,14 +54,18 @@ export const Header: React.FC = () => {
             gap: "var(--gf-space-md)"
           }}
         >
-          <Link
-            to="/"
-            style={{ display: "block" }}
-            aria-label={`${siteConfig.siteName} home`}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "var(--gf-space-xl)",
+              flexWrap: "wrap"
+            }}
           >
             <img
-              src={logoColorUrl}
-              alt={siteConfig.siteName}
+              src={tagScLogoUrl}
+              alt="CNCF TAG Security & Compliance"
               style={{
                 maxHeight: "80px",
                 width: "auto",
@@ -68,7 +73,23 @@ export const Header: React.FC = () => {
                 display: "block"
               }}
             />
-          </Link>
+            <Link
+              to="/"
+              style={{ display: "block" }}
+              aria-label={`${siteConfig.siteName} home`}
+            >
+              <img
+                src={logoColorUrl}
+                alt={siteConfig.siteName}
+                style={{
+                  maxHeight: "80px",
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block"
+                }}
+              />
+            </Link>
+          </div>
           <p
             style={{
               fontSize: "1.1rem",
