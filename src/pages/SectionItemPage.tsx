@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { HubSpotForm } from "../components/HubSpotForm";
 import {
   getSectionItemBySlug,
   getSectionItemByPath
@@ -59,16 +60,28 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
           {item.description}
         </p>
       )}
-      <div
-        className="library-article-body"
-        style={{
-          color: "var(--gf-color-text)",
-          lineHeight: 1.8,
-          fontSize: "1.1rem"
-        }}
-      >
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.body}</ReactMarkdown>
-      </div>
+      {item.body.trim() && (
+        <div
+          className="library-article-body"
+          style={{
+            color: "var(--gf-color-text)",
+            lineHeight: 1.8,
+            fontSize: "1.1rem",
+            marginBottom: item.hubspot ? "var(--gf-space-xl)" : 0
+          }}
+        >
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.body}</ReactMarkdown>
+        </div>
+      )}
+      {item.hubspot && (
+        <div style={{ marginTop: "var(--gf-space-xl)" }}>
+          <HubSpotForm
+            portalId={item.hubspot.portalId}
+            formId={item.hubspot.formId}
+            region={item.hubspot.region}
+          />
+        </div>
+      )}
     </article>
   );
 };

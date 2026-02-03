@@ -1,10 +1,18 @@
 import matter from "gray-matter";
 
+export type SectionItemHubSpot = {
+  portalId: string;
+  formId: string;
+  region: string;
+};
+
 export type SectionItem = {
   slug: string;
   title: string;
   description?: string;
   path?: string;
+  /** When set, the section item page renders a HubSpot form (e.g. for registration). */
+  hubspot?: SectionItemHubSpot;
   body: string;
 };
 
@@ -12,6 +20,7 @@ type Frontmatter = {
   title: string;
   description?: string;
   path?: string;
+  hubspot?: SectionItemHubSpot;
 };
 
 const rawModules = import.meta.glob("./*/**/*.md", {
@@ -50,6 +59,7 @@ for (const [path, raw] of Object.entries(rawModules)) {
     title: fm.title ?? "Untitled",
     description: fm.description,
     path: fm.path,
+    hubspot: fm.hubspot,
     body: content
   };
   if (!bySection[section]) bySection[section] = [];
