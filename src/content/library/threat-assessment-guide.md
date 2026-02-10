@@ -30,22 +30,24 @@ Capabilities are the core functions and behaviors within the scope. Each capabil
 
 Required fields:
 
-| Field         | Required | Description                                                        | Example                                                                                                                         |
-|---------------|----------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Capability ID | Yes      | Unique identifier following the pattern `ORG.PROJ.COMPONENT.CAP##` | `SEC.SLAM.CM.CAP01`                                                                                                             |
-| Title         | Yes      | A clear, concise name that describes the capability                | "Container Image Management"                                                                                            |
-| Description   | Yes      | A specific explanation of what this capability does                | "Ability to pull, store, and manage container images from registries, including public and private repositories." |
+| Field         | Required | Description                                                        | Example                                                                                                   |
+|---------------|----------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Capability ID | Yes      | Unique identifier following the pattern `ORG.PROJ.COMPONENT.CAP##` | `SEC.SLAM.CM.CAP01`                                                                                       |
+| Title         | Yes      | A clear, concise name that describes the capability                | "Image Retrieval by Tag"                                                                                  |
+| Description   | Yes      | A specific explanation of what this capability does                | "Ability to retrieve container images from registries using mutable tag names (e.g., 'latest', 'v1.0').." |
 
 **Example (YAML):**
 
 ```yaml
 capabilities:
   - id: SEC.SLAM.CM.CAP01
-    title: Container Image Management
+    title: Image Retrieval by Tag
     description: |
-      Ability to pull, store, and manage container images from registries,
-      including public and private repositories.
+      Ability to retrieve container images from registries using mutable tag names
+      (e.g., 'latest', 'v1.0').
 ```
+
+**Note:** This is a minimal example showing one capability. Real assessments identify multiple capabilities (e.g., networking, storage, authentication, lifecycle management, configuration) that define the complete attack surface.
 
 ### Step 2: Identify Threats
 
@@ -53,13 +55,13 @@ Threats are specific ways capabilities can be misused, exploited, or cause probl
 
 Required fields:
 
-| Field             | Required | Description                                              | Example                                  |
-|-------------------|----------|----------------------------------------------------------|------------------------------------------|
-| Threat ID         | Yes      | Unique identifier following the pattern `ORG.PROJ.COMPONENT.THR##` | `SEC.SLAM.CM.THR01`                      |
-| Title             | Yes      | A clear, concise name describing the threat              | "Container Image Tampering or Poisoning" |
-| Description       | Yes      | A specific explanation of what goes wrong and why it matters | See YAML example below                   |
-| Capabilities      | Yes      | Links this threat to the capability(ies) it exploits    | See YAML example below                   |
-| External Mappings | No       | Optional links to industry standards like MITRE ATT&CK (useful for security teams) | See YAML example below                   |
+| Field             | Required | Description                                                                        | Example                                           |
+|-------------------|----------|------------------------------------------------------------------------------------|---------------------------------------------------|
+| Threat ID         | Yes      | Unique identifier following the pattern `ORG.PROJ.COMPONENT.THR##`                 | `SEC.SLAM.CM.THR01`                               |
+| Title             | Yes      | A clear, concise name describing the threat                                        | "Container Image Tampering or Poisoning" |
+| Description       | Yes      | A specific explanation of what goes wrong and why it matters                       | See YAML example below                            |
+| Capabilities      | Yes      | Links this threat to the capability(ies) it exploits                               | See YAML example below                            |
+| External Mappings | No       | Optional links to industry standards like MITRE ATT&CK (useful for security teams) | See YAML example below                            |
 
 **Example (YAML):**
 
@@ -68,10 +70,10 @@ threats:
   - id: SEC.SLAM.CM.THR01
     title: Container Image Tampering or Poisoning
     description: |
-      Container images may be created or modified to include backdoors, malware,
-      or misconfigurations. The deployment of compromised images can propagate
-      threats across containerized infrastructure, potentially affecting data
-      integrity, confidentiality, and system reliability.
+      Attackers may replace a legitimately published image tag with a malicious image
+      by exploiting tag mutability in image registries, especially when the container
+      management tool retrieves images by tag name rather than digest. This enables
+      unauthorized access, data exfiltration, and system compromise.
     capabilities:
       - reference-id: SEC.SLAM.CM
         entries:
@@ -79,13 +81,17 @@ threats:
     external-mappings:
       - reference-id: MITRE-ATT&CK
         entries:
+          - reference-id: T1195.002
+            remarks: Compromise Software Supply Chain
           - reference-id: T1204.003
             remarks: Malicious Image
 ```
 
+**Note:** This is a minimal example showing one threat for one capability. Real assessments identify multiple threats per capability (e.g., exploitation of vulnerable base images, unauthorized access via exposed secrets, supply chain compromise).
+
 ### Step 3: Validate
 
-The final YAML should like something like this:
+The final YAML should look something like this:
 ```yaml
 metadata:
   id: SEC.SLAM.CM
@@ -98,7 +104,7 @@ metadata:
   mapping-references:
   - id: MITRE-ATT&CK
     title: MITRE ATT&CK Framework
-    version: "12.0"
+    version: "16.0"
     description: |
       MITRE ATT&CK® is a globally-accessible knowledge base of adversary
       tactics and techniques based on real-world observations. The ATT&CK
@@ -109,18 +115,18 @@ metadata:
 title: Container Management Tool Security Threat Catalog
 capabilities:
   - id: SEC.SLAM.CM.CAP01
-    title: Container Image Management
+    title: Image Retrieval by Tag
     description: |
-      Ability to pull, store, and manage container images from registries,
-      including public and private repositories.
+      Ability to retrieve container images from registries using mutable tag names
+      (e.g., 'latest', 'v1.0').
 threats:
   - id: SEC.SLAM.CM.THR01
     title: Container Image Tampering or Poisoning
     description: |
-      Container images may be created or modified to include backdoors, malware,
-      or misconfigurations. The deployment of compromised images can propagate
-      threats across containerized infrastructure, potentially affecting data
-      integrity, confidentiality, and system reliability.
+      Attackers may replace a legitimately published image tag with a malicious image
+      by exploiting tag mutability in image registries, especially when the container
+      management tool retrieves images by tag name rather than digest. This enables
+      unauthorized access, data exfiltration, and system compromise.
     capabilities:
       - reference-id: SEC.SLAM.CM
         entries:
@@ -128,6 +134,8 @@ threats:
     external-mappings:
       - reference-id: MITRE-ATT&CK
         entries:
+          - reference-id: T1195.002
+            remarks: Compromise Software Supply Chain
           - reference-id: T1204.003
             remarks: Malicious Image
 ```
