@@ -15,8 +15,12 @@ export const LibraryPage: React.FC = () => {
   const selectedTag = searchParams.get("tag");
   const tags = getAllTags();
 
-  const displayTags = selectedTag === null ? tags : tags.filter((t) => t === selectedTag);
   const hasFilter = selectedTag !== null && selectedTag !== "";
+  const articlesToShow = hasFilter
+    ? libraryArticles.filter((a) => a.tags.includes(selectedTag!))
+    : libraryArticles;
+  const showEmptyFilter = hasFilter && articlesToShow.length === 0;
+  const showEmptyLibrary = !hasFilter && libraryArticles.length === 0;
 
   const setTagFilter = (tag: string | null) => {
     if (tag === null) {
@@ -143,20 +147,15 @@ export const LibraryPage: React.FC = () => {
         </section>
       )}
 
-      {displayTags.length === 0 ? (
+      {showEmptyLibrary || showEmptyFilter ? (
         <p style={{ color: "var(--gf-color-text-subtle)" }}>
-          {tags.length === 0
+          {showEmptyLibrary
             ? "No library articles yet."
             : "No articles match this filter."}
         </p>
       ) : (
-        displayTags.map((tag) => (
-          <section
-            key={tag}
-            style={{
-              marginBottom: "var(--gf-space-xl)"
-            }}
-          >
+        <>
+          {hasFilter && selectedTag && (
             <h2
               style={{
                 fontSize: "1.5rem",
@@ -165,61 +164,59 @@ export const LibraryPage: React.FC = () => {
                 color: "var(--gf-color-accent)"
               }}
             >
-              {tag}
+              {selectedTag}
             </h2>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--gf-space-lg)"
-              }}
-            >
-              {libraryArticles
-                .filter((a) => a.tags.includes(tag))
-                .map((article) => (
-                  <Link
-                    key={article.slug}
-                    to={`/library/${article.slug}`}
-                    style={{
-                      textDecoration: "none",
-                      color: "inherit"
-                    }}
-                  >
-                    <SectionCard
-                      title={article.title}
-                      description={article.description ?? ""}
+          )}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--gf-space-lg)"
+            }}
+          >
+            {articlesToShow.map((article) => (
+              <Link
+                key={article.slug}
+                to={`/library/${article.slug}`}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                <SectionCard
+                  title={article.title}
+                  description={article.description ?? ""}
+                >
+                  {article.tags.length > 0 && (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "0.5rem",
+                        marginTop: "var(--gf-space-md)"
+                      }}
                     >
-                      {article.tags.length > 0 && (
-                        <div
+                      {article.tags.map((t) => (
+                        <span
+                          key={t}
                           style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: "0.5rem",
-                            marginTop: "var(--gf-space-md)"
+                            fontSize: "0.8rem",
+                            padding: "0.2rem 0.5rem",
+                            borderRadius: "var(--gf-radius-lg)",
+                            backgroundColor: "var(--gf-color-accent-soft)",
+                            color: "var(--gf-color-accent)"
                           }}
                         >
-                          {article.tags.map((t) => (
-                            <span
-                              key={t}
-                              style={{
-                                fontSize: "0.8rem",
-                                padding: "0.2rem 0.5rem",
-                                borderRadius: "var(--gf-radius-lg)",
-                                backgroundColor: "var(--gf-color-accent-soft)",
-                                color: "var(--gf-color-accent)"
-                              }}
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </SectionCard>
-                  </Link>
-                ))}
-            </div>
-          </section>
-        ))
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </SectionCard>
+              </Link>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
