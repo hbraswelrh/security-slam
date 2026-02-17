@@ -4,6 +4,7 @@ import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
 import { LinkCard } from "../components/LinkCard";
+import { LogoBar } from "../components/LogoBar";
 import { siteConfig } from "../config/site";
 import { carouselImages } from "../content/carousel";
 
@@ -65,6 +66,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <LogoBar />
 
       {siteConfig.pastSlamReports.length > 0 && (
         <section

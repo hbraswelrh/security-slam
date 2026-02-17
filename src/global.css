@@ -193,6 +193,24 @@ h3 {
   outline-offset: 2px;
 }
 
+/* Logo bar: track and img (scroll container uses inline styles, matches eddie-knight) */
+.logo-bar__track {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gf-space-lg);
+  align-items: center;
+  width: max-content;
+}
+.logo-bar__img {
+  height: 112px;
+  width: auto;
+  max-width: 320px;
+  max-height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
 /* Past Slam reports: fixed 2 columns so each row has same count (last row has 1 when odd) */
 .past-reports-grid {
   display: grid;
