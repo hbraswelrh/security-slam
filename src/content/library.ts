@@ -8,6 +8,12 @@ export type LibraryArticle = {
   body: string;
 };
 
+export type LibraryIndex = {
+  title: string;
+  description?: string;
+  body: string;
+};
+
 type Frontmatter = {
   title: string;
   description?: string;
@@ -31,7 +37,7 @@ function getRawContent(value: unknown): string {
   return "";
 }
 
-export const libraryArticles: LibraryArticle[] = Object.entries(rawModules).map(
+const allItems: LibraryArticle[] = Object.entries(rawModules).map(
   ([path, raw]) => {
     const rawString = getRawContent(raw);
     const { data, content } = matter(rawString);
@@ -45,6 +51,18 @@ export const libraryArticles: LibraryArticle[] = Object.entries(rawModules).map(
     };
   }
 );
+
+export const libraryIndex: LibraryIndex | undefined = (() => {
+  const indexItem = allItems.find((a) => a.slug === "index");
+  if (!indexItem) return undefined;
+  return {
+    title: indexItem.title,
+    description: indexItem.description,
+    body: indexItem.body
+  };
+})();
+
+export const libraryArticles: LibraryArticle[] = allItems.filter((a) => a.slug !== "index");
 
 export function getLibraryArticle(slug: string): LibraryArticle | undefined {
   return libraryArticles.find((a) => a.slug === slug);

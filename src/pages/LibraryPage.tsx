@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
+import { markdownComponents } from "../components/markdownComponents";
 import {
   libraryArticles,
+  libraryIndex,
   getAllTags
 } from "../content/library";
 
@@ -26,18 +30,41 @@ export const LibraryPage: React.FC = () => {
           lineHeight: 1.2
         }}
       >
-        Slam Library
+        {libraryIndex?.title ?? "Slam Library"}
       </h1>
-      <p
-        style={{
-          color: "var(--gf-color-text-subtle)",
-          fontSize: "1.25rem",
-          marginBottom: "var(--gf-space-xl)",
-          lineHeight: 1.6
-        }}
-      >
-        A library of support resources to help projects execute on the more complex goals of the Security Slam. The Slam Library opens February 20, 2026.
-      </p>
+      {libraryIndex ? (
+        <>
+          {libraryIndex.description && (
+            <p
+              style={{
+                color: "var(--gf-color-text-subtle)",
+                fontSize: "1.25rem",
+                marginBottom: "var(--gf-space-lg)",
+                lineHeight: 1.6
+              }}
+            >
+              {libraryIndex.description}
+            </p>
+          )}
+          {libraryIndex.body.trim() && (
+            <div
+              className="library-article-body"
+              style={{
+                color: "var(--gf-color-text)",
+                lineHeight: 1.8,
+                fontSize: "1.1rem",
+                marginBottom: "var(--gf-space-xl)"
+              }}
+            >
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                {libraryIndex.body}
+              </ReactMarkdown>
+            </div>
+          )}
+        </>
+      ) : (
+        <p>Error Loading content/library/index.md</p>
+      )}
 
       {tags.length === 0 ? (
         <p style={{ color: "var(--gf-color-text-subtle)" }}>
