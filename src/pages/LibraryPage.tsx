@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
+import { BadgeNavigation } from "../components/BadgeNavigation";
 import { markdownComponents } from "../components/markdownComponents";
 import {
   libraryArticles,
@@ -84,83 +85,12 @@ export const LibraryPage: React.FC = () => {
         <p>Error Loading content/library/index.md</p>
       )}
 
+      {/* Badge Category Navigation */}
+      <BadgeNavigation />
+
       {tags.length > 0 && (
         <>
-          {/* Badge Category Navigation */}
-          <section
-            style={{
-              marginBottom: "var(--gf-space-xl)",
-              paddingTop: "var(--gf-space-md)",
-              paddingBottom: "var(--gf-space-md)"
-            }}
-          >
-            <h2
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: 600,
-                marginTop: 0,
-                marginBottom: "var(--gf-space-lg)",
-                color: "var(--gf-color-text)"
-              }}
-            >
-              Learn about Each Badge
-            </h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-                gap: "var(--gf-space-xl)",
-                maxWidth: "1400px",
-                margin: "0 auto",
-                justifyItems: "center"
-              }}
-            >
-              {/* Badge icons */}
-              {["Inspector", "Chronicler", "Defender", "Cleaner", "Mechanizer"].map((badge) => (
-                tags.includes(badge) && (
-                  <Link
-                    key={badge}
-                    to={`/library/${badge.toLowerCase()}`}
-                    style={{
-                      textDecoration: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "var(--gf-space-sm)",
-                      transition: "transform 0.2s ease"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "scale(1.05)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
-                  >
-                    <img
-                      src={`/badge-icons/${badge.toLowerCase()}.png`}
-                      alt={`${badge} Badge`}
-                      style={{
-                        width: "100%",
-                        maxWidth: "180px",
-                        height: "auto",
-                        objectFit: "contain"
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontSize: "1.1rem",
-                        fontWeight: 600,
-                        color: "var(--gf-color-text)"
-                      }}
-                    >
-                      {badge}
-                    </span>
-                  </Link>
-                )
-              ))}
-            </div>
-
-            {/* Other category circles - separate container */}
+          {/* Other category circles - separate container */}
             {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).length > 0 && (
               <div
                 style={{
@@ -222,7 +152,6 @@ export const LibraryPage: React.FC = () => {
                 ))}
               </div>
             )}
-          </section>
         </>
       )}
 

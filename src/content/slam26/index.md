@@ -1,51 +1,75 @@
 ---
 title: "Security Slam 2026"
 path: "/slam26"
-description: "A 30-day event beginning on Feb 20th, leading up to an awards ceremony at KCCN Europe"
+description: "Welcome to Slam26"
 ---
 
-The *CNCF Technical Advisory Group for Security & Compliance* is excited to announce the upcoming 2026 Security Slam at KubeCon \+ CloudNativeCon Europe, in partnership with Sonatype and OpenSSF.
+Whether you're a maintainer, active contributor, interested in making contributions, or simply an end user cheering on the projects you depend on, getting up to speed with the Security Slam is a quick process.
 
-The event will run from ***Friday, February 20th*** until ***Friday, March 20th***.
+## Let's get to know the flow
 
-The *Security Slam* is a CNCF community activity that has taken many different shapes over the years. Now on its fifth iteration, the Slam is designed to help projects understand and improve their high level security posture.
+First, understand that this is not a traditional hackathon, though it shares some familiar elements.
 
-> _"Security hygiene is something every project should do — and every project can do it with a bit of guidance. It's everyday stuff, like the equivalent of brushing your teeth. After you learn it once, you can easily do it every day.”_
->
-> _Christopher "CRob" Robinson, OpenSSF CTO & Chief Architect_
+There are no teams, only shared objectives. There are no presentations, only completion notifications. There are no prizes, only recognitions.
 
-Previously restricted to CNCF projects due to the nature of the evaluation tools available, the Slam is now taking advantage of the new [LFX Insights](https://insights.linuxfoundation.org/) dashboard to greatly broaden the qualifications for participation: If your project is published to LFX Insights by the closing date, you qualify to receive Slam recognitions.
+- Individuals who register may contribute in any way they see fit.
+- Maintainers who register within the first week of the event may request to have their project added on the [Contributions Welcome] page.
+- Maintainers will submit completion notifications on this site.
+- All participants who are included on a final completion notification will qualify for a digital badge and physical pin issued by our sponsors.
+- Projects who complete all objectives will qualify for a recognition on this site and a physical plaque issued by our sponsors.
 
-Past events have included various incentives to encourage projects to make recommended improvements, such as Google’s 2022 [donations on behalf of projects who reach select milestones](https://www.cncf.io/reports/security-slam-north-america-2022/) or the 2025 [LEGO p rizes awarded to the top contributors](https://www.cncf.io/reports/security-slam-2025/) for each of the participating projects.
+This leads us to the next obvious question...
 
-Similarly wide in variation, the event has had several permutations in its length. In the case of the [Kubernetes Lightning Round](https://www.cncf.io/reports/lightning-round-at-security-slam-2023/), the slam was a day of onboarding new contributors to Kubernetes with a focus on security hygiene improvements to seven different subprojects. Taking it a step further, the 2025 event featured weeks of preparatory work with maintainers, and 45-minute live sessions with maintainers and anyone who wanted to join from the audience at KubeCon \+ CloudNativeCon Europe.
+## What are the objectives?
 
-This year, however, will imitate the event that had the most statistically significant results. In 2023, projects were given their own [iron-on badges and a framed plaque](https://www.cncf.io/reports/security-slam-2023/) to highlight the milestones that they completed during the 30-day event. Not only were the plaques seen at project tables *long* after the event ended, but we received reports of significant project wins due to the efforts achieved during that event.
+The Slam has five key objectives that may be pursued by each project. These center around the _Open Source Project Security Baseline_ which was created by and for maintainers as a project within the [OpenSSF](https://openssf.org).
 
-> _"Work we completed on Argo during the Security Slam paid off big time when the tj-actions GitHub action got compromised. All our workflow versions were pinned during the previous Slam — but if they hadn't been, we'd have spent a massive amount of time rotating secrets."_
->
-> _Michael Crenshaw, Argo CD Lead Maintainer_
+Objectives may be completed out of order, but each is designed to help accelerate completion of the next.
 
-If you help lead an open source project, you may be interested in allocating up to one day a week during the event to 
+- Objective #1: "The Inspector" guides projects in the completion of a single complex documentation task: security self-assessments. There are two different ways this can be marked as complete, but it'll return dividends any way you go about it.
+- Objective #2: "The Chronicler" recognizes the completion of all OSPS Baseline controls related to project documentation. At first glance, these may seem like red herrings in your project's security journey... but industry experts agree that good security practice is always preceded by good documentation.
+- Objective #3: "The Cleaner" is designed to help projects articulate their progress toward baseline completion in a machine-readable manner. This helps Slam evaluators in the same way that it helps your regulated end-users: to increase confidence when forming an opinion on your project's security.
+- Objective #4: "The Mechanizer" is the final step before full completion, setting up automated evaluation of a subset of controls. Not all Baseline control objectives can be automatically evaluated, but anything that can be demonstrated in this fashion helps streamline maintenance and boost confidence with adopters.
+- Objective #5: "The Defender" is a badge issued to projects who demonstrate a robust completeness with the OSPS Baseline, especially as it pertains to your project's maturity level. All other objectives are stair-steps working toward this comprehensive achievement.
 
-Here are some key similarities you will see:
+Now based on who you are, your first steps may be different...
 
-* The project will last approximately one month, leading up to KubeCon  
-* CNCF TAG Security & Compliance will publish a library of support resources to accelerate execution of the more complex goals  
-* Advisors will be available via a dedicated CNCF slack channel all month, to offer clarifications and answer questions related to security hygiene  
-* Participating projects will be given custom plaques to demonstrate their successes  
-* Individual contributors will be given badges corresponding to the project’s completed goals
+## So where should _you_ begin?
 
-And there are new elements as well:
+For projects to be eligible for recognitions, a maintainer must sign up. A Slam Organizer will reach out shortly thereafter to confirm your registration.
 
-* The Slam Library will be hosted on this site throughout the event
-* Projects from outside of the CNCF and Linux Foundation are invited to participate  
-* Advisors and material will be available on the topic of the Cyber Resilience Act (CRA)
+To be eligible forindividual recognitions, you need to personally register and there must be a confirmed registration by the project you're contributing to (Obviously this is two-in-one if you're contributing to a project you maintain).
 
-Key Dates to Remember:
+You should pause and [Register Now](/slam26/register) if you haven't already.
 
-* **Friday, February 20th:** Event objectives are announced; Slam Library Opens  
-* **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
-* **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavillion Stage
+Once that's sorted, it's recommended that you coordinate with other contributors through official project channels, such as GitHub Issues and Slack.
 
-[Registration](http://securityslam.com/slam26/register) is now open: Sign up to receive reminders and instructions related to the event!
+Contributions are typically less likely to be accepted if maintainers are surprised by them... and it'd be a tragedy to duplicate effort if someone else is already working on the same thing. Duplication often results in both efforts getting stalled indefinitely.
+
+But as you're working...
+
+## What if you have questions?
+
+Slam Advisors are standing by to collaborate, speculate, give opinions, and share their experience. These are community members who have already been through the tasks you're completing now.
+
+Common questions include:
+
+- "Will any of my users care about this particular task?"
+- "Will this thing over here have any real security outcomes?"
+- "How thorough do I need to complete this part over here?"
+- "Is my current progress on this objective good enough?"
+- "How can I even accomplish this other thing?"
+
+You can reach out to the pool of Slam Advisors, as well as peers who are currently engaged in the Slam, by joining the TAG Security and Compliance channel on the CNCF Slack server.
+
+- Join the CNCF Slack: [slack.cncf.io](https://slack.cncf.io)
+- Join the TAG-SC channel to chat: [#tag-security-and-compliance](https://cloud-native.slack.com/archives/C08JZ9YLAA3)
+- And Weekly TAG-SC [meetings on Wednesdays](https://cloud-native.slack.com/archives/C08JZ9YLAA3) are also open to the public
+
+## Key Dates to Remember
+
+- **Friday, February 20th:** Event objectives are announced; Slam Library Opens  
+- **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
+- **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavillion Stage
+
+[Registration](http://securityslam.com/slam26/register) is open: Sign up to qualify for recognitions!

@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
+import { BadgeNavigation } from "../components/BadgeNavigation";
 import { markdownComponents } from "../components/markdownComponents";
 import { siteConfig } from "../config/site";
 import {
@@ -139,6 +140,9 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
           </div>
         </>
       )}
+
+      {/* Add BadgeNavigation for slam26 section */}
+      {section === "slam26" && <BadgeNavigation />}
 
       {!indexItem && listItems.length === 0 && (
         <p style={{ color: "var(--gf-color-text-subtle)" }}>No items yet.</p>
