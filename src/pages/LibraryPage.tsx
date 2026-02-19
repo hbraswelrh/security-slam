@@ -98,7 +98,8 @@ export const LibraryPage: React.FC = () => {
                   flexWrap: "wrap",
                   gap: "var(--gf-space-lg)",
                   justifyContent: "center",
-                  marginTop: "var(--gf-space-xl)"
+                  marginTop: "var(--gf-space-xl)",
+                  marginBottom: "var(--gf-space-xl)"
                 }}
               >
                 {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).map((tag) => (

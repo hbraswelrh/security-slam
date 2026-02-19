@@ -39,10 +39,10 @@ export const Header: React.FC = () => {
     <header
       className="site-header"
       style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
+        width: "100vw",
+        margin: "0",
         padding: "var(--gf-space-md) var(--gf-space-xl)",
-        width: "100%"
+        boxSizing: "border-box"
       }}
     >
       <section
@@ -186,7 +186,7 @@ export const Header: React.FC = () => {
                       style={{
                         position: "absolute",
                         top: "100%",
-                        left: 0,
+                        right: 0,
                         paddingTop: "0.25rem",
                         backgroundColor: "transparent",
                         minWidth: "200px",
