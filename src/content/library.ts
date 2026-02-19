@@ -5,6 +5,7 @@ export type LibraryArticle = {
   title: string;
   description?: string;
   tags: string[];
+  badge?: string;
   body: string;
 };
 
@@ -18,6 +19,7 @@ type Frontmatter = {
   title: string;
   description?: string;
   tags: string[];
+  badge?: string;
 };
 
 const rawModules = import.meta.glob("./library/**/*.md", {
@@ -47,6 +49,7 @@ const allItems: LibraryArticle[] = Object.entries(rawModules).map(
       title: fm.title ?? "Untitled",
       description: fm.description,
       tags: Array.isArray(fm.tags) ? fm.tags : [],
+      badge: fm.badge,
       body: content
     };
   }
@@ -62,10 +65,10 @@ export const libraryIndex: LibraryIndex | undefined = (() => {
   };
 })();
 
-export const libraryArticles: LibraryArticle[] = allItems.filter((a) => a.slug !== "index");
+export const libraryArticles: LibraryArticle[] = allItems.filter((a) => a.slug !== "index" && !a.badge);
 
 export function getLibraryArticle(slug: string): LibraryArticle | undefined {
-  return libraryArticles.find((a) => a.slug === slug);
+  return allItems.find((a) => a.slug === slug && a.slug !== "index");
 }
 
 export function getAllTags(): string[] {
@@ -74,4 +77,8 @@ export function getAllTags(): string[] {
     for (const t of a.tags) set.add(t);
   }
   return Array.from(set).sort();
+}
+
+export function getArticlesByTag(tag: string): LibraryArticle[] {
+  return libraryArticles.filter((a) => a.tags.includes(tag));
 }

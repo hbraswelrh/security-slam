@@ -85,24 +85,151 @@ export const LibraryPage: React.FC = () => {
       )}
 
       {tags.length > 0 && (
-        <section
-          style={{
-            marginBottom: "var(--gf-space-xl)",
-            paddingTop: "var(--gf-space-md)",
-            paddingBottom: "var(--gf-space-md)"
-          }}
-        >
-          <h2
+        <>
+          {/* Badge Category Navigation */}
+          <section
             style={{
-              fontSize: "1.125rem",
-              fontWeight: 600,
-              marginTop: 0,
-              marginBottom: "var(--gf-space-md)",
-              color: "var(--gf-color-text-subtle)"
+              marginBottom: "var(--gf-space-xl)",
+              paddingTop: "var(--gf-space-md)",
+              paddingBottom: "var(--gf-space-md)"
             }}
           >
-            Filter by tag
-          </h2>
+            <h2
+              style={{
+                fontSize: "1.25rem",
+                fontWeight: 600,
+                marginTop: 0,
+                marginBottom: "var(--gf-space-lg)",
+                color: "var(--gf-color-text)"
+              }}
+            >
+              Learn about Each Badge
+            </h2>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "var(--gf-space-lg)",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              {/* Badge icons */}
+              {["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].map((badge) => (
+                tags.includes(badge) && (
+                  <Link
+                    key={badge}
+                    to={`/library/${badge.toLowerCase()}`}
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "var(--gf-space-sm)",
+                      transition: "transform 0.2s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
+                  >
+                    <img
+                      src={`/badge-icons/${badge.toLowerCase()}.png`}
+                      alt={`${badge} Badge`}
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain"
+                      }}
+                    />
+                    <span
+                      style={{
+                        fontSize: "0.9rem",
+                        fontWeight: 600,
+                        color: "var(--gf-color-text)"
+                      }}
+                    >
+                      {badge}
+                    </span>
+                  </Link>
+                )
+              ))}
+
+              {/* Other category circles */}
+              {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setTagFilter(tag)}
+                  style={{
+                    textDecoration: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "var(--gf-space-sm)",
+                    border: "none",
+                    background: "none",
+                    cursor: "pointer",
+                    transition: "transform 0.2s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      borderRadius: "50%",
+                      backgroundColor: "var(--gf-color-accent-soft)",
+                      border: "2px solid var(--gf-color-accent)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "var(--gf-space-sm)"
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "0.85rem",
+                        fontWeight: 600,
+                        color: "var(--gf-color-accent)",
+                        textAlign: "center",
+                        lineHeight: 1.2
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {/* Tag Filter Section */}
+          <section
+            style={{
+              marginBottom: "var(--gf-space-xl)",
+              paddingTop: "var(--gf-space-md)",
+              paddingBottom: "var(--gf-space-md)"
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 600,
+                marginTop: 0,
+                marginBottom: "var(--gf-space-md)",
+                color: "var(--gf-color-text-subtle)"
+              }}
+            >
+              Filter by tag
+            </h2>
           <div
             style={{
               display: "flex",
@@ -148,6 +275,7 @@ export const LibraryPage: React.FC = () => {
             ))}
           </div>
         </section>
+        </>
       )}
 
       {showEmptyLibrary || showEmptyFilter ? (
