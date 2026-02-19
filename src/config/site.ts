@@ -76,7 +76,7 @@ export const siteConfig: SiteConfig = {
   // Section index appears in header nav when enabled and inNav !== false.
   contentSections: {
     slam26: { enabled: true, label: "Slam26" },
-    library: { enabled: false, label: "Library", inNav: false },
+    library: { enabled: true, label: "Library", inNav: false },
     blog: { enabled: false, label: "Blog" }
   },
 
@@ -86,6 +86,7 @@ export const siteConfig: SiteConfig = {
       label: "Slam26",
       children: [
         { path: "/slam26", label: "Overview" },
+        { path: "/slam26/register", label: "Registration" },
         { path: "/library", label: "Library" },
         { path: "/slam26/participating-projects", label: "Participating Projects" }
       ]

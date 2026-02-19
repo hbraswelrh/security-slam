@@ -133,6 +133,27 @@ export const Header: React.FC = () => {
             const hasChildren = item.children && item.children.length > 0;
 
             if (hasChildren) {
+              // Filter out disabled sections from dropdown
+              const visibleChildren = item.children!.filter(child => {
+                // Check if this is a content section path
+                const sectionMatch = child.path.match(/^\/([^/]+)/);
+                if (sectionMatch) {
+                  const sectionName = sectionMatch[1];
+                  const sectionConfig = siteConfig.contentSections[sectionName];
+                  // If it's a content section, only show if enabled
+                  if (sectionConfig) {
+                    return sectionConfig.enabled;
+                  }
+                }
+                // If not a content section path, always show
+                return true;
+              });
+
+              // Don't render dropdown if no visible children
+              if (visibleChildren.length === 0) {
+                return null;
+              }
+
               return (
                 <div
                   key={item.path}
@@ -181,7 +202,7 @@ export const Header: React.FC = () => {
                           overflow: "hidden"
                         }}
                       >
-                        {item.children!.map((child) => (
+                        {visibleChildren.map((child) => (
                           <Link
                             key={child.path}
                             to={child.path}
