@@ -8,7 +8,3 @@ badge: "Defender"
 **Challenge:** Complete a Baseline Best Practices Badge for your maturity level
 
 *Badge description and requirements coming soon...*
-
-## Resources
-
-The following resources will help you earn the Defender badge:

@@ -82,6 +82,16 @@ export const LibraryArticlePage: React.FC = () => {
       {/* Display badge articles if this is a badge page */}
       {isBadgePage && badgeArticles.length > 0 && (
         <div style={{ marginTop: "var(--gf-space-xl)" }}>
+          <h2
+            style={{
+              fontSize: "1.75rem",
+              fontWeight: 600,
+              marginBottom: "var(--gf-space-lg)",
+              color: "var(--gf-color-accent)"
+            }}
+          >
+            Resources
+          </h2>
           <div
             style={{
               display: "flex",
