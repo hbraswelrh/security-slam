@@ -116,7 +116,7 @@ export const LibraryPage: React.FC = () => {
               }}
             >
               {/* Badge icons */}
-              {["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].map((badge) => (
+              {["Inspector", "Chronicler", "Defender", "Cleaner", "Mechanizer"].map((badge) => (
                 tags.includes(badge) && (
                   <Link
                     key={badge}
