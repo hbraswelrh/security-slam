@@ -1,7 +1,7 @@
 ---
 title: Threat Assessment Guide
 description: Step-by-step guide to performing Gemara-compatible threat assessments
-tags: ["Assessment", "Security", "GRC-Engineering"]
+tags: ["Inspector"]
 ---
 
 ## What This Is
