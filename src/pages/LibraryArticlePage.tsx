@@ -29,6 +29,21 @@ export const LibraryArticlePage: React.FC = () => {
         width: "100%"
       }}
     >
+      {/* Badge icon for badge pages */}
+      {isBadgePage && article.badge && (
+        <div style={{ textAlign: "center", marginBottom: "var(--gf-space-lg)" }}>
+          <img
+            src={`/badge-icons/${article.badge.toLowerCase()}.png`}
+            alt={`${article.badge} Badge`}
+            style={{
+              width: "200px",
+              height: "200px",
+              objectFit: "contain"
+            }}
+          />
+        </div>
+      )}
+
       <h1
         style={{
           fontSize: "2.5rem",
