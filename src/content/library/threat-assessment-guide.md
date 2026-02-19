@@ -22,8 +22,7 @@ This exercise helps you systematically identify what could go wrong so you can b
 
 Select a component or technology to assess (service, API, infrastructure component, or technology stack).
 
-**Leverage existing resources**: Gemara supports importing threats and capabilities from external catalogs so you don't have to start from scratch. The FINOS Common Cloud Controls (CCC) Core [catalog](https://github.com/finos/common-cloud-controls/releases/download/v2025.10/CCC.Core_v2025.10.yaml) defines well-vetted capabilities and threats that apply broadly across cloud services.
-These pre-built items can help accelerate your assessment.
+**Leverage existing resources**: Gemara supports importing threats and capabilities from external catalogs so you don't have to start from scratch. The FINOS Common Cloud Controls (CCC) Core [catalog](https://github.com/finos/common-cloud-controls/releases/download/v2025.10/CCC.Core_v2025.10.yaml) defines well-vetted capabilities and threats that apply broadly across cloud services. These pre-built items can help accelerate your assessment.
 
 We will explore how this is leveraged below as we dive into our container management tool example (i.e., SEC.SLAM.CM).
 
@@ -36,6 +35,7 @@ Declare your scope and mapping references. Key fields:
 | `title`                             | Display name for the threat catalog (top-level field)        | Human-readable label used in reports and tooling output                                   |
 | `mapping-references` with `id: CCC` | A pointer to the CCC Core catalog release                    | Tells parsers where to resolve the imported capability and threat IDs used in later steps |
 | `imported-capabilities` (Step 2)    | Specific CCC Core capabilities by ID (e.g., `CCC.Core.CP29`) | Brings in common capabilities without redefining them                                     |
+| `imported-threats` (Step 3)         | Specific CCC Core threats by ID (e.g., `CCC.Core.TH14`)      | Brings in common threats without redefining them                                          |
 
 **Example (YAML):**
 
@@ -67,6 +67,8 @@ Capabilities are the core functions or features within the scope.
 
 A container management tool actively reaches out to registries to pull images and configuration.
 Since CCC Core already defines this as **CP29** (Active Ingestion), we import it rather than redefining it.
+Image tags also function as version identifiers — the tool resolves a tag like `latest` or `v1.0` to a specific image.
+CCC Core defines this as **CP18** (Resource Versioning), so we import that as well.
 
 **Example (YAML)**
 
@@ -76,9 +78,11 @@ imported-capabilities:
     entries:
       - reference-id: CCC.Core.CP29
         remarks: Active Ingestion
+      - reference-id: CCC.Core.CP18
+        remarks: Resource Versioning
 ```
 
-**Then, define service-specific capabilities** unique to your target. Required fields:
+**Then, define specific capabilities** unique to your target. Required fields:
 
 | Field         | Required | Description                                                        |
 |---------------|----------|--------------------------------------------------------------------|
@@ -102,9 +106,19 @@ capabilities:
 Threats are specific ways capabilities can be misused, exploited, or cause problems. For each capability, identify potential threats.
 
 **Check for imported threats first.** As with capabilities, review the CCC Core catalog for threats linked to the capabilities you imported.
-If a threat fits your scope, import it. If none fit, define your own.
+If a threat fits your scope, import it. In this example, CCC Core defines **TH14** ("Older Resource Versions are Used") which is linked to **CP18**.
+It applies because mutable image tags let the tool resolve to a stale or compromised version.
 
-In this example, the CCC Core threats linked to **CP29** do not cover our concern — an attacker substituting the artifact at the source. So we define a service-specific threat. Required fields:
+**Example (YAML)**
+
+```yaml
+imported-threats:
+  - reference-id: CCC
+    entries:
+      - reference-id: CCC.Core.TH14
+```
+
+**Then, define specific threats** unique to your target. Required fields:
 
 | Field             | Required | Description                                                                        |
 |-------------------|----------|------------------------------------------------------------------------------------|
@@ -112,7 +126,6 @@ In this example, the CCC Core threats linked to **CP29** do not cover our concer
 | Title             | Yes      | A clear, concise name describing the threat                                        |
 | Description       | Yes      | A specific explanation of what goes wrong and why it matters                       |
 | Capabilities      | Yes      | Links this threat to the capability(ies) it exploits                               |
-
 
 **Example (YAML)**
 
@@ -129,6 +142,7 @@ threats:
       - reference-id: CCC
         entries:
           - reference-id: CCC.Core.CP29
+          - reference-id: CCC.Core.CP18
       - reference-id: SEC.SLAM.CM
         entries:
           - reference-id: SEC.SLAM.CM.CAP01
@@ -160,6 +174,12 @@ imported-capabilities:
     entries:
       - reference-id: CCC.Core.CP29
         remarks: Active Ingestion
+      - reference-id: CCC.Core.CP18
+        remarks: Resource Versioning
+imported-threats:
+  - reference-id: CCC
+    entries:
+      - reference-id: CCC.Core.TH14
 capabilities:
   - id: SEC.SLAM.CM.CAP01
     title: Image Retrieval by Tag
@@ -178,6 +198,7 @@ threats:
       - reference-id: CCC
         entries:
           - reference-id: CCC.Core.CP29
+          - reference-id: CCC.Core.CP18
       - reference-id: SEC.SLAM.CM
         entries:
           - reference-id: SEC.SLAM.CM.CAP01
