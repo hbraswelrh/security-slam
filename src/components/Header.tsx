@@ -151,7 +151,10 @@ export const Header: React.FC = () => {
                       fontFamily: "inherit",
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.25rem"
+                      gap: "0.25rem",
+                      outline: "none",
+                      boxShadow: "none",
+                      WebkitAppearance: "none"
                     }}
                   >
                     {item.label}
@@ -163,42 +166,48 @@ export const Header: React.FC = () => {
                         position: "absolute",
                         top: "100%",
                         left: 0,
-                        marginTop: "0.25rem",
-                        backgroundColor: "var(--gf-color-surface)",
-                        border: "1px solid var(--gf-color-accent)",
-                        borderRadius: "var(--gf-radius-lg)",
-                        boxShadow: "var(--gf-shadow-surface)",
+                        paddingTop: "0.25rem",
+                        backgroundColor: "transparent",
                         minWidth: "200px",
-                        zIndex: 1000,
-                        overflow: "hidden"
+                        zIndex: 1000
                       }}
                     >
-                      {item.children!.map((child) => (
-                        <Link
-                          key={child.path}
-                          to={child.path}
-                          style={{
-                            display: "block",
-                            padding: "0.75rem 1rem",
-                            color: "var(--gf-color-text)",
-                            textDecoration: "none",
-                            transition: "background-color 0.2s",
-                            backgroundColor: location.pathname === child.path ? "var(--gf-color-accent-soft)" : "transparent"
-                          }}
-                          onMouseEnter={(e) => {
-                            if (location.pathname !== child.path) {
-                              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
-                            }
-                          }}
-                          onMouseLeave={(e) => {
-                            if (location.pathname !== child.path) {
-                              e.currentTarget.style.backgroundColor = "transparent";
-                            }
-                          }}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div
+                        style={{
+                          backgroundColor: "var(--gf-color-surface)",
+                          border: "1px solid var(--gf-color-accent)",
+                          borderRadius: "var(--gf-radius-lg)",
+                          boxShadow: "var(--gf-shadow-surface)",
+                          overflow: "hidden"
+                        }}
+                      >
+                        {item.children!.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            style={{
+                              display: "block",
+                              padding: "0.75rem 1rem",
+                              color: "var(--gf-color-text)",
+                              textDecoration: "none",
+                              transition: "background-color 0.2s",
+                              backgroundColor: location.pathname === child.path ? "var(--gf-color-accent-soft)" : "transparent"
+                            }}
+                            onMouseEnter={(e) => {
+                              if (location.pathname !== child.path) {
+                                e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+                              }
+                            }}
+                            onMouseLeave={(e) => {
+                              if (location.pathname !== child.path) {
+                                e.currentTarget.style.backgroundColor = "transparent";
+                              }
+                            }}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

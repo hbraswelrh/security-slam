@@ -105,6 +105,9 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
         </>
       )}
 
+      {/* Add BadgeNavigation for slam26 section */}
+      {section === "slam26" && <BadgeNavigation />}
+
       {listItems.length > 0 && (
         <>
           <h2
@@ -140,9 +143,6 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
           </div>
         </>
       )}
-
-      {/* Add BadgeNavigation for slam26 section */}
-      {section === "slam26" && <BadgeNavigation />}
 
       {!indexItem && listItems.length === 0 && (
         <p style={{ color: "var(--gf-color-text-subtle)" }}>No items yet.</p>
