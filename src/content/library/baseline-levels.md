@@ -3,6 +3,7 @@ title: Understand Baseline Maturity Levels
 description: Start here if you haven't selected your project's Maturity Level
 tags: [Chronicler, OSPS Baseline]
 image: /project-logos/baseline.png
+weight: 1
 author: Satarupa Deb, Revanite
 ---
 

@@ -3,6 +3,7 @@ title: Meet the Baseline
 description: This Slam is all about the OSPS Baseline, so let's make a quick introduction
 image: /project-logos/baseline.png
 tags: [Getting Started, OSPS Baseline]
+weight: 0
 author: Eddie Knight, Sonatype
 ---
 

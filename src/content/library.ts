@@ -8,6 +8,7 @@ export type LibraryArticle = {
   badge?: string;
   image?: string;
   author?: string;
+  weight?: number;
   body: string;
 };
 
@@ -24,6 +25,7 @@ type Frontmatter = {
   badge?: string;
   image?: string;
   author?: string;
+  weight?: number;
 };
 
 const rawModules = import.meta.glob("./library/**/*.md", {
@@ -56,6 +58,7 @@ const allItems: LibraryArticle[] = Object.entries(rawModules).map(
       badge: fm.badge,
       image: fm.image,
       author: fm.author,
+      weight: fm.weight,
       body: content
     };
   }
@@ -71,7 +74,18 @@ export const libraryIndex: LibraryIndex | undefined = (() => {
   };
 })();
 
-export const libraryArticles: LibraryArticle[] = allItems.filter((a) => a.slug !== "index" && !a.badge);
+export const libraryArticles: LibraryArticle[] = allItems
+  .filter((a) => a.slug !== "index" && !a.badge)
+  .sort((a, b) => {
+    // Sort by weight first (lower numbers first, undefined goes to end)
+    const weightA = a.weight ?? Infinity;
+    const weightB = b.weight ?? Infinity;
+    if (weightA !== weightB) {
+      return weightA - weightB;
+    }
+    // Tiebreaker: alphabetical by title
+    return a.title.localeCompare(b.title);
+  });
 
 export function getLibraryArticle(slug: string): LibraryArticle | undefined {
   return allItems.find((a) => a.slug === slug && a.slug !== "index");
@@ -86,5 +100,16 @@ export function getAllTags(): string[] {
 }
 
 export function getArticlesByTag(tag: string): LibraryArticle[] {
-  return libraryArticles.filter((a) => a.tags.includes(tag));
+  return libraryArticles
+    .filter((a) => a.tags.includes(tag))
+    .sort((a, b) => {
+      // Sort by weight first (lower numbers first, undefined goes to end)
+      const weightA = a.weight ?? Infinity;
+      const weightB = b.weight ?? Infinity;
+      if (weightA !== weightB) {
+        return weightA - weightB;
+      }
+      // Tiebreaker: alphabetical by title
+      return a.title.localeCompare(b.title);
+    });
 }

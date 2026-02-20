@@ -3,6 +3,7 @@ title: Understand Baseline Documentation Controls
 description: Quick start guide for OpenSSF Baseline documentation tasks
 tags: [Chronicler, OSPS Baseline]
 image: /project-logos/baseline.png
+weight: 10
 author: Satarupa Deb, Revanite
 ---
 
