@@ -9,6 +9,7 @@ export interface AudioPlayerProps {
 
 export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = false }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { setCurrentAudio } = useAudio();
 
@@ -20,6 +21,9 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = f
   }, [isOpen, setCurrentAudio]);
 
   const handleButtonClick = () => {
+    if (!hasBeenClicked) {
+      setHasBeenClicked(true);
+    }
     if (!isOpen) {
       setIsOpen(true);
     } else {
@@ -32,43 +36,62 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = f
   };
 
   return (
-    <div
-      style={{
-        display: inline ? "inline-flex" : "flex",
-        alignItems: "center",
-        gap: "var(--gf-space-md)",
-        marginLeft: inline ? "var(--gf-space-md)" : "0"
-      }}
-    >
-      <button
-        type="button"
-        onClick={handleButtonClick}
-        title={label || "Play audio"}
+    <>
+      {!hasBeenClicked && !inline && (
+        <style>
+          {`
+            @keyframes pulse-glow {
+              0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
+              }
+              50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+              }
+            }
+            .pulse-button {
+              animation: pulse-glow 2s ease-in-out infinite;
+            }
+          `}
+        </style>
+      )}
+      <div
         style={{
-          background: "var(--gf-color-accent-soft)",
-          border: "1px solid var(--gf-color-accent)",
-          borderRadius: "50%",
-          width: inline ? "32px" : "40px",
-          height: inline ? "32px" : "40px",
-          display: "flex",
+          display: inline ? "inline-flex" : "flex",
           alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          fontSize: inline ? "1rem" : "1.2rem",
-          transition: "transform 0.2s ease, background-color 0.2s ease",
-          padding: 0
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "scale(1.1)";
-          e.currentTarget.style.backgroundColor = "var(--gf-color-accent)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+          gap: "var(--gf-space-md)",
+          marginLeft: inline ? "var(--gf-space-md)" : "0"
         }}
       >
-        🎧
-      </button>
+        <button
+          type="button"
+          onClick={handleButtonClick}
+          title={label || "Play audio"}
+          className={!hasBeenClicked && !inline ? "pulse-button" : ""}
+          style={{
+            background: "var(--gf-color-accent-soft)",
+            border: "1px solid var(--gf-color-accent)",
+            borderRadius: "50%",
+            width: inline ? "32px" : "40px",
+            height: inline ? "32px" : "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: inline ? "1rem" : "1.2rem",
+            transition: "transform 0.2s ease, background-color 0.2s ease",
+            padding: 0
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.1)";
+            e.currentTarget.style.backgroundColor = "var(--gf-color-accent)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+          }}
+        >
+          🎧
+        </button>
       {isOpen && (
         <audio
           ref={audioRef}
@@ -84,5 +107,6 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = f
         </audio>
       )}
     </div>
+    </>
   );
 };
