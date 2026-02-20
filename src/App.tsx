@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BackgroundArcs } from "./components/BackgroundArcs";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { HomePage } from "./pages/HomePage";
 import { ContactPage } from "./pages/ContactPage";
 import { SectionIndexPage } from "./pages/SectionIndexPage";
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
   return (
     <AudioProvider>
       <BrowserRouter>
+      <ScrollToTop />
       <div
         className="slam-theme"
         style={{
