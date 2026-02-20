@@ -95,8 +95,8 @@ export const LibraryArticlePage: React.FC = () => {
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{article.body}</ReactMarkdown>
       </div>
 
-      {/* Display badge articles if this is a badge page */}
-      {isBadgePage && badgeArticles.length > 0 && (
+      {/* Display badge articles if this is a badge page, otherwise show explore more articles */}
+      {isBadgePage && badgeArticles.length > 0 ? (
         <div style={{ marginTop: "var(--gf-space-xl)" }}>
           <h2
             style={{
@@ -158,12 +158,11 @@ export const LibraryArticlePage: React.FC = () => {
             ))}
           </div>
         </div>
+      ) : (
+        <div style={{ marginTop: "var(--gf-space-2xl)", paddingTop: "var(--gf-space-xl)", borderTop: "1px solid var(--gf-color-border)" }}>
+          <LibraryArticleList title="Explore More Articles" />
+        </div>
       )}
-
-      {/* Explore more articles section */}
-      <div style={{ marginTop: "var(--gf-space-2xl)", paddingTop: "var(--gf-space-xl)", borderTop: "1px solid var(--gf-color-border)" }}>
-        <LibraryArticleList title="Explore More Articles" />
-      </div>
     </article>
   );
 };
