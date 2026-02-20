@@ -2,13 +2,13 @@
 title: "Security Slam 2026"
 path: "/slam26"
 description: "Welcome to Slam26!"
-audioUrl: https://www.dropbox.com/scl/fi/fnvd4eewzzdil0p1jgerj/dev-test-audio.mp3?rlkey=qrs0lxhl5vkokqjqcnspszjte&st=8q2dx8s1&raw=1
+audioUrl: https://www.dropbox.com/scl/fi/r504l18l735l2cyhj87n3/landing-page-full.mp3?rlkey=gira069yk8ykxcqnipu5u0ppg&st=ma805ckc&raw=1
 sectionAudio:
-  "Let's get to know the flow": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_1"
-  "What are the objectives?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_2"
-  "So where should _you_ begin?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_3"
-  "What if you have questions?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_4"
-  "Key Dates to Remember": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_5"
+  "Let's get to know the flow": https://www.dropbox.com/scl/fi/jp86i4gy5ppf05qqunldo/landing-page-1.mp3?rlkey=kbsj2i1zmvajct84ezqb6wnx6&st=6ncgqlo4&raw=1
+  "What are the objectives?": https://www.dropbox.com/scl/fi/u9rcs3armd7l0ho927xli/landing-page-2.mp3?rlkey=6iyhngrr1n4ga7adehuym2gn2&st=2zu14kug&raw=1
+  "So where should you begin?": https://www.dropbox.com/scl/fi/v0xz5tf1j124rst7lnu1y/landing-page-3.mp3?rlkey=k4ngzxeuku8o73p02mvpebdr7&st=kr71zpdo&raw=1
+  "What if you have questions?": https://www.dropbox.com/scl/fi/uy8u3mclj619zpf15bedt/landing-page-4.mp3?rlkey=borqzn7kpzsqmo2n2vrvom0qm&st=ud398ank&raw=1
+  "Key Dates to Remember": https://www.dropbox.com/scl/fi/1o2iquowwln7zzm415m6b/landing-page-5.mp3?rlkey=2zuh1bxa6euyzm2cuda6aqfz0&st=id5zuvjv&raw=1
 ---
 
 Whether you're a maintainer, active contributor, interested in making contributions, or simply an end user cheering on the projects you depend on, getting up to speed with the Security Slam is a quick process.
@@ -17,13 +17,13 @@ Whether you're a maintainer, active contributor, interested in making contributi
 
 First, understand that this is not a traditional hackathon, though it shares some familiar elements.
 
-There are no teams, only shared objectives. There are no presentations, only completion notifications. There are no prizes, only recognitions.
+There are no teams, only shared objectives. There are no presentations or scoring, only submission and evaluation. There are no prizes, only recognitions.
 
 - Individuals who register may contribute in any way they see fit.
 - Maintainers who register within the first week of the event may request to have their project added on the [Participating Projects](/slam26/participating-projects) page.
-- Maintainers will submit completion notifications on this site.
+- Maintainers will submit completion notifications on the relevant badge page.
 - All participants who are included on a final completion notification will qualify for a digital badge and physical pin issued by our sponsors.
-- Projects who complete all objectives will qualify for a recognition on this site and a physical plaque issued by our sponsors.
+- Projects who complete all objectives will qualify for a recognition on this website and a physical plaque issued by our sponsors.
 
 This leads us to the next obvious question...
 
@@ -36,12 +36,12 @@ Objectives may be completed out of order, but each is designed to help accelerat
 - Objective #1: "The Inspector" guides projects in the completion of a single complex documentation task: security self-assessments. There are two different ways this can be marked as complete, but it'll return dividends any way you go about it.
 - Objective #2: "The Chronicler" recognizes the completion of all OSPS Baseline controls related to project documentation. At first glance, these may seem like red herrings in your project's security journey... but industry experts agree that good security practice is always preceded by good documentation.
 - Objective #3: "The Cleaner" is designed to help projects articulate their progress toward baseline completion in a machine-readable manner. This helps Slam evaluators in the same way that it helps your regulated end-users: to increase confidence when forming an opinion on your project's security.
-- Objective #4: "The Mechanizer" is the final step before full completion, setting up automated evaluation of a subset of controls. Not all Baseline control objectives can be automatically evaluated, but anything that can be demonstrated in this fashion helps streamline maintenance and boost confidence with adopters.
+- Objective #4: "The Mechanizer" is the penultimate step before full Slam completion, where projects will set up automated evaluation for a subset of controls. Not all Baseline control objectives can be automatically evaluated, but anything that can be demonstrated in this fashion helps streamline maintenance and boost confidence with adopters.
 - Objective #5: "The Defender" is a badge issued to projects who demonstrate a robust completeness with the OSPS Baseline, especially as it pertains to your project's maturity level. All other objectives are stair-steps working toward this comprehensive achievement.
 
 Now based on who you are, your first steps may be different...
 
-## So where should _you_ begin?
+## So where should you begin?
 
 For projects to be eligible for recognitions, a maintainer must sign up. A Slam Organizer will reach out shortly thereafter to confirm your registration.
 
@@ -76,7 +76,7 @@ You can reach out to the pool of Slam Advisors, as well as peers who are current
 ## Key Dates to Remember
 
 - **Friday, February 20th:** Event objectives are announced; Slam Library Opens  
-- **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
+- **Friday, March 20th:** Final scoring submissions closes; Completion evaluation begins  
 - **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavilion Stage
 
 [Registration](http://securityslam.com/slam26/register) is open: Sign up to qualify for recognitions!

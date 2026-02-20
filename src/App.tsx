@@ -9,6 +9,7 @@ import { SectionIndexPage } from "./pages/SectionIndexPage";
 import { SectionItemPage } from "./pages/SectionItemPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { LibraryArticlePage } from "./pages/LibraryArticlePage";
+import { AudioProvider } from "./contexts/AudioContext";
 import { useTheme } from "./theme";
 import { siteConfig } from "./config/site";
 import { getSectionItems } from "./content/sections";
@@ -17,7 +18,8 @@ export const App: React.FC = () => {
   useTheme();
 
   return (
-    <BrowserRouter>
+    <AudioProvider>
+      <BrowserRouter>
       <div
         className="slam-theme"
         style={{
@@ -91,5 +93,6 @@ export const App: React.FC = () => {
         <Footer />
       </div>
     </BrowserRouter>
+    </AudioProvider>
   );
 };

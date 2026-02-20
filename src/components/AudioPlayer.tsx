@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useAudio } from "../contexts/AudioContext";
 
 export interface AudioPlayerProps {
   src: string;
@@ -8,19 +9,40 @@ export interface AudioPlayerProps {
 
 export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = false }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { setCurrentAudio } = useAudio();
+
+  useEffect(() => {
+    if (isOpen && audioRef.current) {
+      // Register this player with a close callback
+      setCurrentAudio(audioRef.current, () => setIsOpen(false));
+    }
+  }, [isOpen, setCurrentAudio]);
+
+  const handleButtonClick = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+    } else {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      setIsOpen(false);
+    }
+  };
 
   return (
     <div
       style={{
         display: inline ? "inline-flex" : "flex",
         alignItems: "center",
-        gap: "var(--gf-space-sm)",
+        gap: "var(--gf-space-md)",
         marginLeft: inline ? "var(--gf-space-md)" : "0"
       }}
     >
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleButtonClick}
         title={label || "Play audio"}
         style={{
           background: "var(--gf-color-accent-soft)",
@@ -49,6 +71,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, label, inline = f
       </button>
       {isOpen && (
         <audio
+          ref={audioRef}
           controls
           autoPlay
           style={{

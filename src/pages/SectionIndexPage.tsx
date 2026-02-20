@@ -43,17 +43,22 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
             width: "100%"
           }}
         >
-          <h1
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: 700,
-              marginBottom: "var(--gf-space-md)",
-              color: "var(--gf-color-accent)",
-              lineHeight: 1.2
-            }}
-          >
-            {indexItem.title}
-          </h1>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--gf-space-md)", marginBottom: "var(--gf-space-md)", flexWrap: "wrap" }}>
+            <h1
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: 700,
+                margin: 0,
+                color: "var(--gf-color-accent)",
+                lineHeight: 1.2
+              }}
+            >
+              {indexItem.title}
+            </h1>
+            {indexItem.audioUrl && (
+              <AudioPlayer src={indexItem.audioUrl} label="Narrate Page" />
+            )}
+          </div>
           {indexItem.description && (
             <p
               style={{
@@ -65,11 +70,6 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
             >
               {indexItem.description}
             </p>
-          )}
-          {indexItem.audioUrl && (
-            <div style={{ marginBottom: "var(--gf-space-lg)" }}>
-              <AudioPlayer src={indexItem.audioUrl} label="Narrate Page" />
-            </div>
           )}
           <div
             className="library-article-body"
