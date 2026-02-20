@@ -32,7 +32,7 @@ export const HomePage: React.FC = () => {
             title="Securing Open Source at the Source"
             paragraphs={[
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-               "The Slam Library will soon be available with the most up-to-date guides and resources. Register now to recieve updates as the event draws nearer!"
+               "The 2026 Security Slam is now active! Visit the Slam 26 page to explore the library of resources, connect with advisors, and learn how to participate."
             ]}
             centered={false}
             maxWidth="700px"
@@ -40,7 +40,7 @@ export const HomePage: React.FC = () => {
           />
           <div style={{ marginTop: "var(--gf-space-lg)", textAlign: "center" }}>
           <Link
-            to="/slam26/register"
+            to="/slam26"
             style={{
               display: "inline-block",
               padding: "var(--gf-space-md) var(--gf-space-xl)",
@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
               e.currentTarget.style.transform = "none";
             }}
           >
-            Register now
+            Dive in to Slam 26
           </Link>
           </div>
         </div>
