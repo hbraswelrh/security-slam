@@ -2,7 +2,7 @@
 title: Meet the LFX Insights Dashboard
 description: The preferred mechanism for the Mechanizer badge (Read this early — it could take a minute to activate)
 image: /project-logos/lfx-insights.svg
-tags: ["Mechanizer", "Getting Started"]
+tags: ["Mechanizer", "Getting Started", "Helpful Tools"]
 author: Jonathan Reimer, Linux Foundation
 ---
 
