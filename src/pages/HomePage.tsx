@@ -44,7 +44,7 @@ export const HomePage: React.FC = () => {
             style={{
               display: "inline-block",
               padding: "var(--gf-space-md) var(--gf-space-xl)",
-              background: "linear-gradient(135deg, #5ce0e8 0%, #29bfc7 50%, #159aa1 100%)",
+              background: "linear-gradient(135deg, var(--gf-color-complement) 0%, #29bfc7 50%, #159aa1 100%)",
               color: "#fff",
               fontWeight: 600,
               textDecoration: "none",

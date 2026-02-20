@@ -10,6 +10,7 @@ export type AppTheme = {
     textSubtle: string;
     accent: string;
     accentSoft: string;
+    complement: string;
     borderStrong: string;
     buttonText?: string;
   };
@@ -43,6 +44,7 @@ const slamTheme: AppTheme = {
     textSubtle: "#a78bfa",
     accent: "#e879f9",
     accentSoft: "rgba(232, 121, 249, 0.2)",
+    complement: "#8DE8F2",
     borderStrong: "rgba(167, 139, 250, 0.3)",
     buttonText: "#ffffff"
   },
@@ -96,6 +98,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     "--gf-color-text-subtle": theme.colors.textSubtle,
     "--gf-color-accent": theme.colors.accent,
     "--gf-color-accent-soft": theme.colors.accentSoft,
+    "--gf-color-complement": theme.colors.complement,
     "--gf-color-border-strong": theme.colors.borderStrong,
     "--gf-color-button-text": theme.colors.buttonText || theme.colors.text,
     "--gf-radius-lg": theme.radii.lg,

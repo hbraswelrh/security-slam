@@ -1,7 +1,6 @@
 ---
 title: Meet the Baseline
 description: This Slam is all about the OSPS Baseline, so let's make a quick introduction
-path: /library/meet-the-baseline
 image: /project-logos/baseline.png
 tags: [Getting Started, OSPS Baseline]
 ---

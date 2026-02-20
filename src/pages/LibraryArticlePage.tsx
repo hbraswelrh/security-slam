@@ -83,6 +83,18 @@ export const LibraryArticlePage: React.FC = () => {
           {article.description}
         </p>
       )}
+      {article.author && (
+        <p
+          style={{
+            color: "var(--gf-color-complement)",
+            fontSize: "0.95rem",
+            marginBottom: "var(--gf-space-lg)",
+            fontStyle: "italic"
+          }}
+        >
+          By {article.author}
+        </p>
+      )}
       <div
         className="library-article-body"
         style={{
