@@ -95,6 +95,24 @@ export const LibraryArticlePage: React.FC = () => {
           {article.description}
         </p>
       )}
+      {article.videoUrl && (
+        <div style={{ marginBottom: "var(--gf-space-xl)" }}>
+          <video
+            width="100%"
+            controls
+            style={{
+              maxWidth: "900px",
+              margin: "0 auto",
+              display: "block",
+              borderRadius: "8px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+            }}
+          >
+            <source src={article.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
       <div
         className="library-article-body"
         style={{

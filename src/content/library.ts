@@ -9,6 +9,7 @@ export type LibraryArticle = {
   image?: string;
   author?: string;
   weight?: number;
+  videoUrl?: string;
   body: string;
 };
 
@@ -26,6 +27,7 @@ type Frontmatter = {
   image?: string;
   author?: string;
   weight?: number;
+  videoUrl?: string;
 };
 
 const rawModules = import.meta.glob("./library/**/*.md", {
@@ -59,6 +61,7 @@ const allItems: LibraryArticle[] = Object.entries(rawModules).map(
       image: fm.image,
       author: fm.author,
       weight: fm.weight,
+      videoUrl: fm.videoUrl,
       body: content
     };
   }
