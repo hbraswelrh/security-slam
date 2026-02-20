@@ -1,36 +1,43 @@
 ---
 title: "Mechanizer Badge"
-description: "Automate the World."
+description: "Automate baseline evaluation for your project"
 path: "/library/mechanizer"
 badge: "Mechanizer"
 ---
 
 ## Challenge
 
-Achieve 100% on LFX Insights Security & Best Practices Dashboard or zero-failures with OSPS Baseline GitHub Action
+Achieve 100% on LFX Insights Security & Best Practices Dashboard or zero failures with OSPS Baseline GitHub Action
 
 ## Why?
 
-Come on, you understand this one.
+Automation benefits everyone.
 
-You want things automated so that you can get answers at a glance. Your regulated users want things automated so they can get up-to-date information for their own conformity assessments. We want you to automate it so that we don't have to spend hours reviewing your Slam progress by hand. Everyone wins.
+You get answers at a glance. Your regulated users get up-to-date information for their conformity assessments. Slam evaluators can verify progress without manual review.
+
+More importantly, automation makes security sustainable. Manual checks get skipped. Automated checks keep running.
 
 ## How?
 
-This one has two options, just like the [Inspector Badge]().
+Two options for automated baseline evaluation:
 
-- Option 1: Onboard your Project to LFX Insights if it isn't already
-- Option 2: Add the OSPS Baseline GitHub Action to your repo(s)
+- **Option 1**: LFX Insights Security & Best Practices Dashboard (recommended)
+- **Option 2**: OSPS Baseline GitHub Action
 
-### Option #1
+_If your project isn't hosted on GitHub, reach out to Slam Organizers for an alternate evaluation path._
 
-I know, options are annoying. So we've got a preferred order: Try to get your project onboarded to LFX Insights first.
+### Option 1: LFX Insights (Recommended)
 
-If you're in the Linux Foundation, you're probably already covered here. If not, you'll need to [submit a request].
+Linux Foundation projects are typically already onboarded. If not, [submit a request](https://github.com/linuxfoundation/insights/discussions/categories/project-onboardings).
 
-If your project is accepted, they'll do routine scans and keep historical records. The features on the platform are always expanding, and they include all sorts of elements beyond the Security & Best Practices tab. It's a huge win.
+LFX Insights runs routine scans and keeps historical records. The platform includes features beyond security metrics that benefit your project.
 
-Also, this has a _subset_ of the control evaluations from Option 2. It's the same scanner under the hood, but the LFX maintainers hand-pick which evaluations they calculate into the final score. So it takes longer to get approved, but it's faster to get everything passing.
+This option evaluates a curated subset of baseline controls. Same scanner as Option 2, but LFX maintainers select which evaluations count toward your score. Takes longer to get approved, but faster to achieve 100% once you're in.
 
-### Option #2
+### Option 2: GitHub Action
 
+Faster to get started. The OpenSSF maintains a [Privateer](https://privateerproj.com) plugin for scanning GitHub repos against baseline requirements.
+
+You can run it locally using [pvtr-github-repo-scanner](https://github.com/ossf/pvtr-github-repo-scanner) or add it to CI with the [GitHub Action for OSPS Baseline](https://github.com/marketplace/actions/open-source-project-security-baseline-scanner).
+
+This option evaluates all baseline controls that can be automatically verified. More comprehensive than LFX Insights, but requires zero failures to complete the badge.

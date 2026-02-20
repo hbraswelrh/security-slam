@@ -23,26 +23,20 @@ The Defender badge lets you go up on a roof and shout about it when you finish.
 
 ## How?
 
-The path to Defender depends on your project's maturity level. If you're just starting out, you're working toward Maturity Level 1 (ML1). If you've been around longer and have more resources, you might be targeting ML2 or ML3.
+The Defender badge is earned by completing the OSPS Baseline Best Practices Badge questionnaire for your project's maturity level, then posting the badge at the top of your README.
 
-### The Journey
+### The Best Practices Badge
 
-1. **Know your maturity level**: Review the [OSPS Baseline maturity level definitions](#) to understand where your project sits
-2. **Complete the stepping stones**: Work through Inspector, Chronicler, Cleaner, and Mechanizer badges to build your foundation
-3. **Fill the gaps**: Use the [Baseline controls documentation](#) to identify any remaining controls for your maturity level
-4. **Document everything**: Make sure your completeness is visible and verifiable
-5. **Get evaluated**: Submit your project for Slam evaluation
+Head to [bestpractices.dev](https://bestpractices.dev) and complete the OSPS Baseline questionnaire for your repository. You'll need admin access to your repo to get started.
 
-### What "Complete" Means
+The system autodetects a portion of the requirements, saving you time on things it can verify automatically. The rest is a straightforward questionnaire about your security practices and documentation.
 
-Complete doesn't mean perfect. It means you've addressed all the baseline controls applicable to your maturity level. Some controls require specific implementations. Others require documented decisions and trade-offs.
+Many projects already have OpenSSF Best Practices Badges (the "metal series" — passing, silver, gold). The OSPS Baseline badge works alongside those, focusing specifically on the controls defined in the Baseline catalog.
 
-The key is demonstrating that you've considered each control, implemented what makes sense for your project, and can articulate why you made the choices you did.
+Once you've completed the questionnaire and met the requirements for your maturity level, you'll get a badge for your repository that shows your Baseline completeness.
 
 ### Getting There
 
-This is a marathon, not a sprint. Most projects don't complete Defender in their first Slam. That's okay.
-
-Use this Slam to make meaningful progress. Work with your Slam Advisor when you get stuck. Learn from the other projects in your cohort. Celebrate the badges you do earn along the way.
+This is a marathon, not a sprint. You have 30-days to complete this for a badge. You can start working in the Best Practices Badge portal and save your progress to return later.
 
 The Defender badge will be waiting when you're ready.
