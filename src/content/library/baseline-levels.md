@@ -9,8 +9,8 @@ author: Satarupa Deb, Revanite
 
 The baseline uses three maturity levels, allowing projects to implement security measures appropriate to their risk profile and user base.
 
-1. `Level 1` is for all projects, it can be code or code, can have any number of maintainers. It is the starting point for all projects that have made a release and covers all the fundamental security practices every project should have
-1. `Level 2` is specifically for any code project that have a small number of consistent users and at least 2 maintainers. It builds on the foundation of  Level 1 with additional. It is appropriate for all projects that have a regular usage and are being developed collaboratively.
+1. `Level 1` is for all projects, it can be code or non-code, can have any number of maintainers. It is the starting point for all projects that have made a release and covers all the fundamental security practices every project should have
+1. `Level 2` is specifically for any code project that have a small number of consistent users and at least 2 maintainers. It builds on the foundation of  Level 1 with additional controls. It is appropriate for all projects that have a regular usage and are being developed collaboratively.
 1. `Level 3` is for any code project that has a large and consistent user base. It is mainly for projects that are being widely adopted by enterprises and other organisations. These projects  are essential as they provide critical infrastructure or handle sensitive data.
 
 In the OSPS Baseline documentation, each control contains an objective and one or more assessment requirements. These requirements are granular testable statements, and each is tagged with its applicable maturity level(s).
@@ -18,15 +18,13 @@ In the OSPS Baseline documentation, each control contains an objective and one o
 ## How to Find your level
 
 Try asking yourself these questions:
-Who are your users? If it is a small hobby project that can help the community in some way start with level 1, if you are building for an enterprise level 3 is a must.
 
-How mature is your project? If it’s a fairly new repo, start at level 1, if it's stable and has a set of releases with a roadmap, you might want to bump it to level 2 or level 3.
+- Who are your users? If it is a small hobby project that can help the community in some way start with level 1, if you are building for an enterprise level 3 is a must.
+- How mature is your project? If it’s a fairly new repo, start at level 1, if it's stable and has a set of releases with a roadmap, you might want to bump it to level 2 or level 3.
+- What is the downstream impact of a security incident ? If a vulnerability in your project can compromise  hundreds downstream projects you need level 3, if the scale is small, then either level 1 or level 2, can be fine.
+- Are you asking the community to trust you? If your project handles sensitive data, handles credentials and payments, then level 3 is a must.
 
-What is the downstream impact of a security incident ? If a vulnerability in your project can compromise  hundreds downstream projects you need level 3, if the scale is small, then either level 1 or level 2, can be fine.
-
-Are you asking the community to trust you? If your project handles sensitive data, handles credentials and payments, then level 3 is a must.
-
-You don’t have to do everything at once. Identify your level and you can build on top of that. 
+You don’t have to do everything at once. Identify your level and you can build on top of that.
 
 Many projects have a high self-opinion of their security hygiene, but the OSPS Baseline reveals gaps. In these cases they have documentation but it’s outdated and incomplete. They might have security policies but users are unable to locate them in their project repo.
 
