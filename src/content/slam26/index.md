@@ -71,7 +71,7 @@ You can reach out to the pool of Slam Advisors, as well as peers who are current
 
 - Join the CNCF Slack: [slack.cncf.io](https://slack.cncf.io)
 - Join the TAG-SC channel to chat: [#tag-security-and-compliance](https://cloud-native.slack.com/archives/C08JZ9YLAA3)
-- And Weekly TAG-SC [meetings on Wednesdays](https://cloud-native.slack.com/archives/C08JZ9YLAA3) are also open to the public
+- And Weekly TAG-SC [meetings on Wednesdays](https://zoom-lfx.platform.linuxfoundation.org/meeting/99826624011?password=1f36a78e-7dd1-43e6-b3c8-6a305038acb5) are also open to the public
 
 ## Key Dates to Remember
 
