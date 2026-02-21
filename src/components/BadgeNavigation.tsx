@@ -2,14 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const BadgeNavigation: React.FC = () => {
-  const badges = ["Chronicler", "Inspector", "Cleaner", "Mechanizer", "Defender"];
+  const badges = [
+    "Inspector",
+    "Chronicler",
+    "Cleaner",
+    "Mechanizer",
+    "Defender",
+  ];
 
   return (
     <section
       style={{
         marginBottom: "var(--gf-space-xl)",
         paddingTop: "var(--gf-space-md)",
-        paddingBottom: "var(--gf-space-md)"
+        paddingBottom: "var(--gf-space-md)",
       }}
     >
       <h2
@@ -27,7 +33,7 @@ export const BadgeNavigation: React.FC = () => {
           gap: "var(--gf-space-xl)",
           maxWidth: "1400px",
           margin: "0 auto",
-          justifyItems: "center"
+          justifyItems: "center",
         }}
       >
         {badges.map((badge) => (
@@ -40,7 +46,7 @@ export const BadgeNavigation: React.FC = () => {
               flexDirection: "column",
               alignItems: "center",
               gap: "var(--gf-space-md)",
-              transition: "transform 0.2s ease"
+              transition: "transform 0.2s ease",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.05)";
@@ -56,14 +62,14 @@ export const BadgeNavigation: React.FC = () => {
                 width: "100%",
                 maxWidth: "180px",
                 height: "auto",
-                objectFit: "contain"
+                objectFit: "contain",
               }}
             />
             <span
               style={{
                 fontSize: "1.1rem",
                 fontWeight: 600,
-                color: "var(--gf-color-text)"
+                color: "var(--gf-color-text)",
               }}
             >
               {badge}
