@@ -35,6 +35,14 @@ projects:
     advisor: Jason Meridth
     repoUrl: https://github.com/argoproj/argo-helm
     logoUrl: /project-logos/argo.png
+  - name: OpenFGA
+    advisor: Andres Aguiar
+    repoUrl: https://github.com/openfga/openfga
+    logoUrl: /project-logos/openfga.png
+  - name: Meshery
+    advisor: Sangram Rath
+    repoUrl: https://github.com/meshery/meshery
+    logoUrl: /project-logos/meshery.svg
 ---
 
 Click on any project below to visit their repository and start contributing!
