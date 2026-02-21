@@ -69,7 +69,7 @@ export const siteConfig: SiteConfig = {
   preregistrationUrl: "",
 
   banner: {
-    enabled: true,
+    enabled: false,
     message: "The Security Slam is now live! Slam Library assets are still being uploaded and may be incomplete at this time.",
     storageKey: "slam26-banner-dismissed"
   },
