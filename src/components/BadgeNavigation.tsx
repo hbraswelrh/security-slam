@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const BadgeNavigation: React.FC = () => {
-  const badges = ["Mechanizer", "Chronicler", "Cleaner", "Inspector", "Defender"];
+  const badges = ["Chronicler", "Cleaner", "Inspector", "Mechanizer", "Defender"];
 
   return (
     <section
